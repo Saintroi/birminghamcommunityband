@@ -29,24 +29,22 @@ const Wrap = styled.div`
 //JSX
 
 function Site(props) {
-    const [purposeRef, setPurposeRef] = useState(null);
-    const [serviceRef, setServiceRef] = useState(null);
-    const [resultRef, setResultRef] = useState(null);
+    const [aboutRef, setaboutRef] = useState(null);
+    const [scheduleRef, setscheduleRef] = useState(null);
     const [contactRef, setContactRef] = useState(null);
     const [coverRef, setCoverRef] = useState(null);
   
   
     const getRefsFromChild = (childRefs) => {
-      setPurposeRef(childRefs.purposeRef);
-      setServiceRef(childRefs.serviceRef);
-      setResultRef(childRefs.resultRef);
+      setaboutRef(childRefs.aboutRef);
+      setscheduleRef(childRefs.scheduleRef);
       setContactRef(childRefs.contactRef);
       setCoverRef(childRefs.coverRef);
   
     }
   
     const giveRefsToChild = () => {
-      return {purposeRef, serviceRef, resultRef, contactRef, coverRef};
+      return {aboutRef, scheduleRef, contactRef, coverRef};
     }
   
   return (

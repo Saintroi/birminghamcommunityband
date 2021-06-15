@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../../img/apluspatientSmall.png';
+import logo from '../../img/BCCB-Logo.png';
 import {Burger, SlideInMenu} from '..';
 
 
@@ -45,7 +45,7 @@ const NavLink = styled.li`
   border-style: solid;
   max-width: 120px;
   min-width: 80px;
-  width: 100px;
+  width: 300px;
   border-width: 0px;
   transition: background-color 100ms, border-width 100ms;
 
@@ -90,7 +90,7 @@ const APPLogo = styled.div`
 
   img{
     width: auto;
-    height: 110%;
+    height: 100%;
   }
 
   @media only screen and (max-width: 795px){
@@ -121,14 +121,11 @@ function Nav(props) {
         <img src={logo} alt="A-Plus Patient" onClick={() => scrollToRef(refs.coverRef)}></img> 
       </APPLogo>
       <NavList>
-          <NavLink onClick={() => scrollToRef(refs.purposeRef)}>
-            <StyledLink>Purpose</StyledLink>
+          <NavLink onClick={() => scrollToRef(refs.aboutRef)}>
+            <StyledLink>About Us</StyledLink>
           </NavLink>
-          <NavLink onClick={() => scrollToRef(refs.serviceRef)}>
-            <StyledLink>Solutions</StyledLink>
-          </NavLink>
-          <NavLink onClick={() => scrollToRef(refs.resultRef)}>
-            <StyledLink>Results</StyledLink>
+          <NavLink onClick={() => scrollToRef(refs.scheduleRef)}>
+            <StyledLink>Concert Schedule</StyledLink>
           </NavLink>
           <NavLink onClick={() => scrollToRef(refs.contactRef)}>  
             <StyledLink>Contact</StyledLink>
