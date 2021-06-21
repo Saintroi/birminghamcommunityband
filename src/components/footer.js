@@ -26,7 +26,8 @@ function Footer(props) {
 
   return (
     <Wrap>
-        <p>Copyright 2017 A+ Patient, LLC</p>
+        <p>Birmingham Community Bands is a non-profit organization</p>
+        <p>Website design by Drew Nelson</p>
     </Wrap>
 
     );
