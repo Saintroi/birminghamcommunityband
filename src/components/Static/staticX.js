@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 const Bar = styled.div`
     margin: 0 auto;
     position: absolute;
-    background-color: ${(props) => props.theme.accentColor};;
+    background-color: ${(props) => props.theme.textColor};;
 
     &.horizontal {
         width: 20px;

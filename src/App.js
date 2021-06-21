@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
-import { ErrorBoundary, Site, Dashboard, Login } from './components';
+import { ErrorBoundary, Site} from './components';
 import GlobalFonts from './fonts/fonts';
 import './App.css';
 
@@ -11,12 +11,12 @@ import './App.css';
 
 const theme = {
   backgroundColor: '#FEF9EF',
-  primaryColor: '#02C39A',
-  altBackgroundColor: '#055574',
-  accentColor: '#05668D',
+  primaryColor: '#264653',
+  altBackgroundColor: '#70ABAF',
+  accentColor: '#FBB13C',
   brightAccentColor: '#00A896',
-  altAccentColor: '#BBBBBF',
-  darkAccentColor: '#028090',
+  altAccentColor: '#99E1D9',
+  darkAccentColor: '#AD343E',
   vignetteColor: '#222C37',
   textColor: 'black',
   altTextColor: '#8298A3' 

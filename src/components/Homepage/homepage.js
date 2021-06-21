@@ -1,9 +1,15 @@
-import React, { useEffect, useRef} from 'react';
-import { withRouter } from 'react-router-dom';
-import { PopUp } from '..'
-import styled from 'styled-components';
-import bg from '../../img/bandtemp.jpg';
-
+import React, { useEffect, useRef } from "react";
+import config from '../../config';
+import { withRouter } from "react-router-dom";
+import { PopUp } from "..";
+import styled from "styled-components";
+import bg from "../../img/bandtemp.jpg";
+import johnny from "../../img/johnnyjacobs.jpg";
+import harry from "../../img/harry.jpg";
+import deanna from "../../img/deanna.jpg";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import Calendar from "@ericz1803/react-google-calendar";
 
 // styles
 
@@ -13,216 +19,377 @@ const MainWrap = styled.div`
   flex-direction: column;
   align-items: center;
   z-index: 98;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
+
+  .sliderimg {
+    width: auto;
+    height: 50vh;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 const Cover = styled.div`
-    color: white;
-    background-color: ${(props) => props.theme.backgroundColor};
-    overflow: hidden;
-    flex: 3;
-    align-self: stretch;
-    margin-bottom: 10px;
-    text-align: center;
-    height: 40vh;
-    width: 100%;
+  color: white;
+  background-color: ${(props) => props.theme.backgroundColor};
+  overflow: hidden;
+  flex: 3;
+  align-self: stretch;
+  margin-bottom: 10px;
+  text-align: center;
+  height: 30vh;
+  width: 100%;
 
-h1{
+  h1 {
     position: absolute;
     z-index: 98;
     top: 20vh;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 4vmin;
+  }
 
-}
-
-.bg{
-    height: 40vh;
+  .bg {
+    height: 30vh;
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
     filter: blur(3px) brightness(60%);
     transform: scale(1.01);
     z-index: 95;
-}
+  }
 
-.city{
-
-}
-
-@media only screen and (max-width: 795px){
-    h1{
-        top: 25%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0px;
-        font-size: 7vmin;
-        width: 100%;
+  @media only screen and (max-width: 795px) {
+    h1 {
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0px;
+      font-size: 7vmin;
+      width: 100%;
     }
-}
+  }
 `;
 
-const Purpose = styled.div`
-    color: black;
-    text-align: center;
-    background-color: ${(props) => props.theme.backgroundColor};
-    border-radius: 20px;
-    margin-bottom: 10px;
-    width: 95%;
-    flex: 2;
-    padding: 0 10px 0 10px;
 
-p{
+const About = styled.div`
+  color: black;
+  text-align: center;
+  background-color: ${(props) => props.theme.backgroundColor};
+  border-radius: 20px;
+  margin-bottom: 20px;
+  width: 95%;
+  max-width: 1200px;
+  flex: 2;
+  padding: 10px;
+  border: 2px solid ${(props) => props.theme.altBackgroundColor};
+
+  p {
     font-size: 1.5vmin;
     margin: 0 30px 0 30px;
-}
+  }
 
-@media only screen and (max-width: 795px){
-    p{
-        font-size: 4vmin;
-        margin: 0 30px 0 30px;
+  @media only screen and (max-width: 795px) {
+    p {
+      font-size: 4vmin;
+      margin: 0 30px 0 30px;
     }
-    h1{
-        font-size: 6vmin;
-        width: 100%;
-        margin: 5px;
+    h1 {
+      font-size: 6vmin;
+      width: 100%;
+      margin: 5px;
     }
-}
-
+  }
 `;
 
+const Card = styled.div`
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: ${(props) => props.theme.altBackgroundColor};
+  border-radius: 0px;
+  margin: 0 20px 20px 20px;
+  width: 25%;
+  max-width: 360px;
+  align-self: stretch;
 
-const StyledLink = styled.a`
-    background-color: ${(props) => props.theme.primaryColor};
-    background: linear-gradient(to right,  ${(props) => props.theme.brightAccentColor} 50%, ${(props) => props.theme.primaryColor} 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
-    transition: all .3s ease-out;
-    color: white;
-    text-decoration: none;
-    position: absolute;
-    top: 40vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 98;
-    white-space: nowrap;
-    width: 30%;
-    height: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-h2{
+  p {
     font-size: 1.5vmin;
-    font-weight: bold;
-    top: 50%;
+    margin: 0 20px 0 20px;
+    margin-bottom: auto;
+  }
 
-}
+  img {
+    margin-top: 20px;
+    width: 13vmin;
+    height: 13vmin;
+    border-radius: 50%;
+  }
 
-&:focus, &:active, &:hover{
-  text-decoration: none;
-}
+  @media only screen and (max-width: 795px) {
+    margin: 0 5px 5px 5px;
+    width: 70%;
+    padding: 0px;
 
-&:hover{
-    background-position: left bottom;
-    cursor: pointer;
-
-}
-@media only screen and (max-width: 795px){
-        width: 100%;
-        top: 35%;
-        h2{
-            font-size: 5vmin;
-        }
+    p {
+      font-size: 5vmin;
+      margin: 0 30px 0 30px;
     }
+    h2 {
+      font-size: 6vmin;
+      width: 100%;
+      margin: 5px;
+    }
+  }
 `;
 
-const Contact = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    color: white;
-    text-align: center;
-    background-color: ${(props) => props.theme.primaryColor};
-    border-radius: 20px;
-    margin: 20px;
-    width: 60%;
-    flex: 2;
-    padding: 20px 20px 20px 20px;
+const Conductors = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  margin: 20px;
+  width: 80%;
+  flex: 2;
+  padding: 20px 20px 20px 20px;
 
-
-h1{
+  p {
+    font-size: 1.5vmin;
+  }
+  h1 {
     margin: 5px;
-}
-hr{
+    color: black;
+  }
+  hr {
     width: 100%;
     height: 0;
     border: none;
-}
-a{
+  }
+
+  @media only screen and (max-width: 795px) {
+    h1 {
+      font-size: 6vmin;
+      width: 100%;
+      margin: 5px;
+    }
+  }
+`;
+
+const Contact = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: white;
+  text-align: center;
+  background-color: ${(props) => props.theme.primaryColor};
+  border-radius: 20px;
+  margin: 20px;
+  width: 60%;
+  flex: 2;
+  padding: 20px 20px 20px 20px;
+
+  h1 {
+    margin: 5px;
+  }
+  hr {
+    width: 100%;
+    height: 0;
+    border: none;
+  }
+  a {
     color: white;
     font-size: 2vmin;
-}
+  }
 
-@media only screen and (max-width: 795px){
+  @media only screen and (max-width: 795px) {
     margin: 0;
     width: 80%;
-    a{
-       font-size: 4vmin;
+    a {
+      font-size: 4vmin;
     }
-}
+  }
 `;
 
 //JSX
+const handleDragStart = (e) => e.preventDefault();
+
+const cache = {};
+
+function importAll(r) {
+  r.keys().forEach((key) => (cache[key] = r(key)));
+}
+
+//<StyledLink><h2>LEARN MORE</h2></StyledLink>
 
 function Homepage(props) {
-    const aboutRef = useRef(null);
-    const scheduleRef = useRef(null);
-    const contactRef = useRef(null);
-    const coverRef = useRef(null);
+  const aboutRef = useRef(null);
+  const conductorRef = useRef(null);
+  const scheduleRef = useRef(null);
+  const contactRef = useRef(null);
+  const coverRef = useRef(null);
+  importAll(require.context("../../img/bandpics", false, /\.(png|jpe?g|svg)$/));
+  const bandPictures = Object.entries(cache).map((module) => module[1].default);
+  let calStyle = {
+    calendar: {
+      borderWidth: "3px",
+      minWidth: "50%"
+    },
+    today:{
+      color: "#70ABAF",
+      border: "1px solid #70ABAF"
+    },
+    tooltip:{
+      width: "auto",
+      backgroundColor: "#99E1D9",
+      
+    }
+  }
 
-
-    useEffect(() => {
-        props.giveRefsToParent({aboutRef, scheduleRef, contactRef, coverRef});
-    });
+  useEffect(() => {
+    props.giveRefsToParent({ aboutRef, conductorRef, scheduleRef, contactRef, coverRef });
+    console.log(config.calendar);
+  });
 
   return (
     <MainWrap>
-        <Cover ref={coverRef}>
-            <h1>BIRMINGHAM COMMUNITY BANDS</h1>
-            <StyledLink><h2>LEARN MORE</h2></StyledLink>
-            <img className="bg" src={bg} alt=""></img>
-        </Cover>
-        <Purpose ref={aboutRef}>
-            <h1 >PURPOSE</h1>
-            <p>
-                Nationwide, healthcare costs are higher than they’ve ever been, and they continue to rise year-over-year. 
-                One of the leading causes are chronic illnesses, such as heart disease, diabetes, hypertension, and COPD. 
-                These account for over 85% of healthcare costs today, and close to half of the American population suffer from at least one of them. 
-                The longer they go untreated the more expensive they become. <br></br><br></br>One of the reasons these diseases are difficult to manage 
-                is because patients get tired of taking the various medications ordered by their physicians to control them. 
-                Those who cut back oftentimes find themselves in the emergency room with heart attacks, strokes and other complications.<br></br><br></br>
-                Studies vary but show that an average of 12% and 40% of all prescriptions written/ordered nationwide never get filled. 
-                That’s quite a big gap in fulfillment depending on which organization you take at its word. 
-                However, regardless of which end of the spectrum you believe the numbers fall on, the fact is physicians are often left clueless 
-                about their patients’ prescription compliance.  Couple that with lack of knowledge physicians have about additional medications 
-                being prescribed by other healthcare providers, and the patients bear the burden of additional healthcare risk.<br></br><br></br>
-                A+ Patient works in corroboration with pharmaceutical manufacturers as well as healthcare providers and other software
-                 providers to educate and empower patients and enhance physician insights.  
-                 This in turn increases compliance of prescribed medication regimens, lowers overall healthcare costs, and drives pharma innovation.
-                 </p>
-            </Purpose>
-        <Contact>
-            <h1 ref={contactRef}>CONTACT US</h1>
-            <hr></hr>
-            <a href="mailto:info@apluspatient.com">info@apluspatient.com</a>
-        </Contact>
+      <Cover ref={coverRef}>
+        <img className="bg" src={bg} alt=""></img>
+        <h1>BIRMINGHAM COMMUNITY BANDS</h1>
+      </Cover>
+      <About ref={aboutRef}>
+        <h1>About Us</h1>
+        <p>
+          The Birmingham Community Concert Band Association was founded in 1980.
+          Its purpose is to promote the listening enjoyment of concert band
+          music for the Greater Birmingham Area while providing local musicians
+          an opportunity to get together to do what they love -- play their
+          instruments. It currently sponsors two groups: the Birmingham
+          Community Concert Band and the Birmingham Wind Ensemble. Both groups
+          rehearse weekly and perform several concerts at various times and
+          locations throughout the year. The membership boasts a very diverse
+          group of instrumentalists of all ages, backgrounds, professions, and
+          ability levels. <br></br>
+          <br></br>
+          The Birmingham Community Concert Band meets every Tuesday evening from
+          7:00 to 9:00pm in the band room in Hulsey Hall on the Campus of the
+          University of Alabama at Birmingham. It is under the direction of
+          Harry McAfee during the Academic Year and Dr. Johnny Jacobs during the
+          summer. Alan Brooks serves as substitute when needed.<br></br>
+          <br></br>
+          The Birmingham Wind Ensemble meets on Wednesdays from 7:00 to 9:00pm
+          in the University of Alabama at Birmingham Band Room. This group is
+          conducted by Jack Rudisell.<br></br>
+          <br></br>
+          The membership is completely volunteer. The BCCB Association is
+          registered as a 501 C-3 not for profit organization and welcomes tax
+          deductible donations.<br></br>
+          <br></br>
+          The Association expresses its deepest appreciation to the UAB band
+          director, Dr. Gene Fambrough, and the Music Department of the
+          University of Alabama at Birmingham for the generous support in
+          allowing us to use the Band Room and equipment for our rehearsals.
+          <br></br>
+          <br></br>
+          Individuals interested in becoming a member of one or both of these
+          groups may contact us or may visit at any rehearsal.
+        </p>
+      </About>
+      <AliceCarousel
+        mouseTracking
+        keyboardNavigation
+        infinite
+        autoPlay
+        autoPlayInterval="5000"
+      >
+        {bandPictures.map((image, index) => (
+          <img
+            src={image}
+            key={index}
+            alt="error"
+            onDragStart={handleDragStart}
+            className="sliderimg"
+          />
+        ))}
+      </AliceCarousel>
+      <About ref={conductorRef}>
+        <h1>About the Conductors</h1>
+        <p>
+          Over the years the bands have been under the direction of several
+          outstanding conductors. Among these were Founding Conductor Dr. Donald
+          W. Stauffer, a former director of the U. S. Navy Band; Dr. Jim
+          Ferguson, a former director of the University of Alabama Million
+          Dollar Band; Dr. Jon Remley, retired Superintendent of Music for
+          Jefferson County Schools and former director of the Samford University
+          Band; Larry Deagon, retired Superintendent of Music for Jefferson
+          County Schools and former band director at Shades Valley High School;
+          DeWitt Self, former director at Leeds High School; Dr. Johnny Jacobs,
+          retired Supervisor of Music for Jefferson County Schools and former
+          band director at Minor High School; Spencer Shaw, former director at
+          University of Montevallo Bands; Harry McAfee, former band director at
+          Shades Valley High School and Hoover High School; Alan Brooks, former
+          band director at Robert E. Lee High School (Montgomery), Mountain
+          Brook High School, and John Carroll Catholic High School; and Deanna
+          Bell, the music teacher at Vestavia Hills Elementary East. <br></br>
+          <br></br>
+        </p>
+      </About>
+      <Conductors ref={conductorRef}>
+        <Card>
+          <img src={harry} alt=""></img>
+          <h2>Harry L. McAfee</h2>
+          <p>
+            Mr. McAffee serves as the conductor for the Spring and Fall Concert
+            Band.
+          </p>
+          <PopUp
+            text={
+              "Retired after 37 years of experience as a successful band director in Alabama public schools, Mr. McAfee now serves as the Executive Secretary for the Alabama Bandmaster's Association. His bands always received highest ratings on both the concert stage and the marching field and performed in many prestigious events both in the United States and abroad. Mr. McAfee received his Bachelor of Music Degree from the University of Montevallo and also earned a Master of Science Degree at the University of Illinois placing emphasis on instrumental conducting and band literature. He is retired from the U.S. Army Reserve after 26 years of meritorious service with the 313th Army Band.\n\nMemberships include the Alabama Music Educators, National Association for Music Education, The National Band Association, The International Trumpet Guild, and Phi Beta Mu Honorary Band Directors Fraternity. Along with serving as conductor of the Celebration Winds, Mr. McAfee conducted the Alabama Ambassadors Band European Tour in the Summer of 2013. As an active member of the Birmingham Musicians Union he plays with the Alabama Winds Community Band, local shows and church work, and as an extra with the Alabama Symphony. He is also a member and director of the orchestra at Metropolitan Church of God. He and his wife Amy, who plays French horn, have two daughters, Kate and Erin, who are All-State Band musicians."
+            }
+          ></PopUp>
+        </Card>
+        <Card>
+          <img src={johnny} alt=""></img>
+          <h2>Dr. Johnny Jacobs</h2>
+          <p>
+            Dr. Johnny Jacobs serves as the conductor for the Summer Concert
+            Band.
+          </p>
+          <PopUp
+            text={
+              "Dr. Jacobs is retired Supervisor of Bands for the Jefferson County, Alabama School System. Prior to his appointment to this position he served as band director at Dixie Jr. High School, Minor High School, Hewitt- Trussville Junior High School, and Berry High School.\n\nDr. Jacobs holds degrees from Birmingham-Southern College, the University of Illinois, and the University of Alabama. Concurrent with his services in public education, he played for ten years with the Birmingham Symphony Orchestra and taught in the trumpet studios of Birmingham- Southern College for thirty years and Samford University for eleven years.\n\nDr. Jacobs is a member of the Alabama Bandmasters Hall of Fame and the Alabama Music Educators Hall of Fame. He presently serves as private teacher and consultant in five public schools in the Birmingham area. He resides on his old family home place near Warrior, Alabama where he serves as deacon in Water Stone Church. He and his wife Carol, who plays clarinet, have five children and ten grandchildren."
+            }
+          ></PopUp>
+        </Card>
+        <Card>
+          <img src={deanna} alt=""></img>
+          <h2>Deanna Bell</h2>
+          <p>Deanna Bell serves as the conductor for the Wind Ensemble.</p>
+          <PopUp
+            text={
+              "Deanna Bell is the music teacher at Vestavia Hills Elementary East, conductor of the Birmingham Wind Ensemble, and an adjunct music professor at the University of Alabama at Birmingham. She has worked in Alabama, Tennessee, and Virginia teaching elementary music, choir, and band in all grade levels from kindergarten to college. As the Director of Bands at Linkhorne Middle School in Virginia, her bands consistently earned superior ratings. Deanna joined the Shades Valley High School Band staff in 2006 and worked with the high school marching band for seven years.\n\nShe earned her Bachelor of Science in Music Education from The University of Alabama and her Master of Music Education from Samford University. Deanna studied conducting with Dr. Gerald Welker and Dr. Ken Ozzello. In 2010, Deanna was awarded National Board Certification in Early and Middle Childhood Music. Deanna received Orff Levels I, II, and III Certification from Samford University and Kodaly Levels I and II Certification from The University of Montevallo. She serves on the Alabama Kodaly Educators Board, the Executive Board for the Alabama Chapter of the American Orff-Schulwerk Association, and is a District 3 Chair for the Alabama Music Educators Association. Deanna is the 2016-2017 Elementary Teacher of the Year for Vestavia Hills City Schools."
+            }
+          ></PopUp>
+        </Card>
+      </Conductors>
+      <Calendar apiKey={config.calendar.api_key} calendars={[{calendarId: config.calendar.calendarID, color: "#FBB13C"}]} styles={calStyle} showFooter={false}/>
+      <hr ref={scheduleRef}></hr>
+      <Contact>
+        <h1 ref={contactRef}>CONTACT US</h1>
+        <hr></hr>
+        <a href="mailto:birminmghamcommunityband@gmail.com">birminmghamcommunityband@gmail.com</a>
+      </Contact>
     </MainWrap>
-
-    );
-  }
+  );
+}
 
 export default withRouter(Homepage);

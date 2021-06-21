@@ -85,7 +85,6 @@ const APPLogo = styled.div`
   max-height: 85px;
   height: 75px;
   align-self: flex-start;
-  padding-left: 5px;
   pointer-events: all;
 
   img{
@@ -123,6 +122,9 @@ function Nav(props) {
       <NavList>
           <NavLink onClick={() => scrollToRef(refs.aboutRef)}>
             <StyledLink>About Us</StyledLink>
+          </NavLink>
+          <NavLink onClick={() => scrollToRef(refs.conductorRef)}>
+            <StyledLink>Conductors</StyledLink>
           </NavLink>
           <NavLink onClick={() => scrollToRef(refs.scheduleRef)}>
             <StyledLink>Concert Schedule</StyledLink>

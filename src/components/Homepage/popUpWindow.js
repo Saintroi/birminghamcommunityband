@@ -9,19 +9,20 @@ const OverlayWindow = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: ${(props) => props.theme.altBackgroundColor};
-    opacity: 90%;
-    border-color: ${(props) => props.theme.primaryColor};
+    background-color: ${(props) => props.theme.darkAccentColor};
+    opacity: 95%;
+    border-color: ${(props) => props.theme.accentColor};
     border-width: 2px;
     border-style: solid;
     visibility: ${props => props.showing ? 'visible' : 'hidden'};
     z-index: 100;
     min-width: 40%;
-    max-height: ${props => props.showing ? '500px' : '0'};
+    max-width: 40%;
+    max-height: ${props => props.showing ? '80vh' : '0'};
     color: white;
     text-align: center;
     overflow: hidden;
-
+    white-space: pre-wrap;
     transition: all 300ms ease;
 
 
@@ -29,6 +30,7 @@ const OverlayWindow = styled.div`
         opacity: 100%;
         font-size: 2vmin;
         margin: 5%;
+        padding: 10px;
     }
 
     @media only screen and (max-width: 795px){
@@ -44,7 +46,7 @@ const OverlayWindow = styled.div`
 
 const StyledLink = styled.a`
     background-color: ${(props) => props.theme.primaryColor};
-    background: linear-gradient(to right,  ${(props) => props.theme.brightAccentColor} 50%, ${(props) => props.theme.primaryColor} 50%);
+    background: linear-gradient(to right,  ${(props) => props.theme.accentColor} 50%, ${(props) => props.theme.primaryColor} 50%);
     background-size: 200% 100%;
     background-position: right bottom;
     transition: all .3s ease-out;
