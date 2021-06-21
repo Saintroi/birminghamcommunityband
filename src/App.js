@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { ErrorBoundary, Site} from './components';
-import GlobalFonts from './fonts/fonts';
 import './App.css';
 
 //const Login = React.lazy(() => import('./components'));
@@ -36,7 +35,6 @@ function App(props){
     <ErrorBoundary>
       <ThemeProvider theme={theme}>
         <AppWrapper key='app'>
-          <GlobalFonts />
           <Route exact path="/" component={Site}></Route>
         </AppWrapper>
       </ThemeProvider>

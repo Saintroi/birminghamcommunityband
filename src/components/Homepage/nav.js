@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/BCCB-Logo.png';
 import {Burger, SlideInMenu} from '..';
