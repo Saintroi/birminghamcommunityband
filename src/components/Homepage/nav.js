@@ -41,6 +41,7 @@ const NavLink = styled.li`
   align-items: center;
   justify-content: center;
   margin-left: 20px;
+  padding: 10px;
   text-align: center;
   border-style: solid;
   max-width: 120px;
