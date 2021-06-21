@@ -26,8 +26,7 @@ function Footer(props) {
 
   return (
     <Wrap>
-        <p>Birmingham Community Bands is a non-profit organization</p>
-        <p>Website design by Drew Nelson</p>
+        <p>Birmingham Community Bands is a non-profit organization • Website designed by Drew Nelson</p>
     </Wrap>
 
     );
