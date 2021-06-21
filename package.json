@@ -1,6 +1,6 @@
 {
-  "name": "apluspatient-client",
-  "version": "0.1.0",
+  "name": "birminghamcommunityband",
+  "version": "1.0",
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
