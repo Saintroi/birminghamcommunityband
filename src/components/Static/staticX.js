@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     transform: rotate(45deg);
     position: fixed;
-    left: 1vw;
-    top: 15px;
+    left: 99%;
+    top: 10px;
 
     @media only screen and (max-width: 795px){
         left: 3vw;

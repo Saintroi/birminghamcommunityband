@@ -18,7 +18,7 @@ const NavWrap = styled.div`
   height: 75px;
   width: 100%;
   grid-area: nav;
-  opacity: 0.95;
+  opacity: 0.96;
   z-index: 99;
 `;
 
@@ -95,7 +95,7 @@ const APPLogo = styled.div`
 
   @media only screen and (max-width: 795px){
     margin-left: auto;
-    margin-right: 10px;    
+    margin-right: 10px;
   }
 `;
 
@@ -124,11 +124,11 @@ function Nav(props) {
           <NavLink onClick={() => scrollToRef(refs.aboutRef)}>
             <StyledLink>About Us</StyledLink>
           </NavLink>
-          <NavLink onClick={() => scrollToRef(refs.conductorRef)}>
-            <StyledLink>Conductors</StyledLink>
-          </NavLink>
           <NavLink onClick={() => scrollToRef(refs.scheduleRef)}>
             <StyledLink>Concert Schedule</StyledLink>
+          </NavLink>
+          <NavLink onClick={() => scrollToRef(refs.conductorRef)}>
+            <StyledLink>Conductors</StyledLink>
           </NavLink>
           <NavLink onClick={() => scrollToRef(refs.contactRef)}>  
             <StyledLink>Contact</StyledLink>

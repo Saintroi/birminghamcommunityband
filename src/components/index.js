@@ -7,3 +7,4 @@ export {default as PopUp} from './Homepage/popUpWindow';
 export {default as SlideInMenu} from './Homepage/menu-slide-in';
 export {default as Burger} from './Animations/burger-menu';
 export {default as StaticX} from './Static/staticX';
+export {default as Gallery} from './gallery';

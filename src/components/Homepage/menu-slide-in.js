@@ -7,7 +7,7 @@ const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: ${(props) => props.theme.brightAccentColor};
+  background-color: ${(props) => props.theme.altBackgroundColor};
   height: 100vh;
   text-align: left;
   padding: 2rem;
@@ -17,6 +17,7 @@ const StyledMenu = styled.nav`
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   transition: transform 0.3s ease-in-out;
   width: 50%;
+  opacity: 1;
 `;
 
 const StyledLink = styled.a`
@@ -50,9 +51,9 @@ function SlideInMenu(props) {
       }
     return (
         <StyledMenu open = {props.open}>
-            <StyledLink onClick={() => scrollToRef(props.refs.purposeRef)}>Purpose</StyledLink>
-            <StyledLink onClick={() => scrollToRef(props.refs.serviceRef)} >Solutions</StyledLink>
-            <StyledLink onClick={() => scrollToRef(props.refs.resultRef)}>Results</StyledLink>
+            <StyledLink onClick={() => scrollToRef(props.refs.aboutRef)}>About Us</StyledLink>
+            <StyledLink onClick={() => scrollToRef(props.refs.scheduleRef)} >Concert Schedule</StyledLink>
+            <StyledLink onClick={() => scrollToRef(props.refs.conductorRef)}>Conductors</StyledLink>
             <StyledLink onClick={() => scrollToRef(props.refs.contactRef)}>Contact</StyledLink>
       </StyledMenu>
     )

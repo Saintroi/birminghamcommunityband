@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
-import { ErrorBoundary, Site} from './components';
+import { ErrorBoundary, Site, Gallery} from './components';
 import './App.css';
 
 //const Login = React.lazy(() => import('./components'));
@@ -36,6 +36,7 @@ function App(props){
       <ThemeProvider theme={theme}>
         <AppWrapper key='app'>
           <Route exact path="/" component={Site}></Route>
+          <Route exact path="/gallery" component={Gallery}></Route>
         </AppWrapper>
       </ThemeProvider>
     </ErrorBoundary>

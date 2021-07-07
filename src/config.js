@@ -1,6 +1,5 @@
 const config = {
   appUrl: 'http://localhost:3000',
-  serverUrl: 'https://apluspatient-server-dev.azurewebsites.net',
   authToken: 'bearer ',
   calendar: {
     calendarID: "birminghamcommunityband@gmail.com",

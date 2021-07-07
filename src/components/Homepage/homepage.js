@@ -80,7 +80,7 @@ const About = styled.div`
   text-align: center;
   background-color: ${(props) => props.theme.backgroundColor};
   border-radius: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
   width: 95%;
   max-width: 1200px;
   flex: 2;
@@ -94,14 +94,17 @@ const About = styled.div`
 
   @media only screen and (max-width: 795px) {
     p {
-      font-size: 4vmin;
-      margin: 0 30px 0 30px;
+      font-size: 3.5vmin;
+      margin: 0;
+      padding: 0 15px;
     }
     h1 {
       font-size: 6vmin;
       width: 100%;
-      margin: 5px;
+      margin: 5px 0;
     }
+    margin: 5px 0;
+    width: 90%
   }
 `;
 
@@ -183,6 +186,23 @@ const Conductors = styled.div`
     }
   }
 `;
+const StyledLink = styled.a`
+  text-transform: uppercase;
+  font-size: 1.5vmin;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+
+
+  &:focus, &:active, &:hover{
+    text-decoration: none;
+    cursor: pointer;
+  }
+`;
+
+const PhotoWrap = styled.div`
+  width: 99%;
+`;
 
 const Contact = styled.div`
   display: flex;
@@ -194,7 +214,7 @@ const Contact = styled.div`
   background-color: ${(props) => props.theme.primaryColor};
   border-radius: 20px;
   margin: 20px;
-  width: 60%;
+  width: 30%;
   flex: 2;
   padding: 20px 20px 20px 20px;
 
@@ -205,10 +225,15 @@ const Contact = styled.div`
     width: 100%;
     height: 0;
     border: none;
+    margin: 0;
   }
   a {
     color: white;
-    font-size: 2vmin;
+    font-size: 1.5vmin;
+  }
+  p {
+    font-size: 1.5vmin;
+    margin: 5px;
   }
 
   @media only screen and (max-width: 795px) {
@@ -304,11 +329,13 @@ function Homepage(props) {
           groups may contact us or may visit at any rehearsal.
         </p>
       </About>
-      <AliceCarousel
+      <PhotoWrap>      
+        <AliceCarousel
         mouseTracking
         keyboardNavigation
         infinite
         autoPlay
+        
         autoPlayInterval="5000"
       >
         {bandPictures.map((image, index) => (
@@ -321,6 +348,10 @@ function Homepage(props) {
           />
         ))}
       </AliceCarousel>
+     </PhotoWrap>
+
+      <hr ref={scheduleRef}></hr>
+      <Calendar apiKey={config.calendar.api_key} calendars={[{calendarId: config.calendar.calendarID, color: "#FBB13C"}]} styles={calStyle} showFooter={false}/>
       <About ref={conductorRef}>
         <h1>About the Conductors</h1>
         <p>
@@ -381,12 +412,12 @@ function Homepage(props) {
           ></PopUp>
         </Card>
       </Conductors>
-      <Calendar apiKey={config.calendar.api_key} calendars={[{calendarId: config.calendar.calendarID, color: "#FBB13C"}]} styles={calStyle} showFooter={false}/>
-      <hr ref={scheduleRef}></hr>
       <Contact>
         <h1 ref={contactRef}>CONTACT US</h1>
         <hr></hr>
-        <a href="mailto:birminmghamcommunityband@gmail.com">birminmghamcommunityband@gmail.com</a>
+        <p>Like us on <a href="https://www.facebook.com/Birminghamcommunity">Facebook</a></p>
+        <p>Send us an email: <a href="mailto:birminghamcommunityband@gmail.com">birminghamcommunityband@gmail.com</a></p>
+
       </Contact>
     </MainWrap>
   );
