@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, {useEffect, useRef } from 'react';
+
 
 // styles
 const StyledBurger = styled.button`
-    top: 25%;
-    left: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -15,7 +14,7 @@ const StyledBurger = styled.button`
     cursor: pointer;
     padding: 0;
     margin-left: 10px;
-    z-index: 10;
+    z-index: 100;
     visibility: hidden;
     align-self: center;
 
@@ -55,8 +54,25 @@ const StyledBurger = styled.button`
 //JSX
 
 function Burger(props) {
+  const wrapperRef = useRef(null)
+
+  function handleClick(event) {
+    if (wrapperRef && wrapperRef.current.contains(event.target)) {
+      props.toggleOpen();
+    }
+
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  });
+
     return (
-      <StyledBurger open={props.open} onClick={() => props.setOpen(!props.open)}>
+      <StyledBurger open={props.open} ref={wrapperRef}>
         <div />
         <div />
         <div />

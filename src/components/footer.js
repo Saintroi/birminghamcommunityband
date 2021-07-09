@@ -13,8 +13,8 @@ const Wrap = styled.div`
   height: 100px;
   
   @media only screen and (max-width: 795px){
-    height: 50px;
-    font-size: 3vmin;
+    height: 30px;
+    font-size: 2vmin;
   }
 `;
 

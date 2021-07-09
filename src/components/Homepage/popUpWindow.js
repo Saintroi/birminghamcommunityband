@@ -53,6 +53,7 @@ const StyledLink = styled.a`
     color: white;
     text-decoration: none;
     margin-top: 10px;
+    padding: 10px 0;
     width: 100%;
     height: 4vmin;
     align-self: flex-end;
@@ -60,7 +61,7 @@ const StyledLink = styled.a`
 h2{
     font-size: 1.5vmin;
     font-weight: bold;
-    top: 50%;
+    position: relative;
 
 }
 
@@ -76,6 +77,8 @@ h2{
 
 @media only screen and (max-width: 795px){
     height: 6vmin;
+    padding: 5px 0;
+    margin-top: 5px;
     h2{
         font-size: 4vmin;
     }

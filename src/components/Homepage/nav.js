@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/BCCB-Logo.png';
-import {Burger, SlideInMenu} from '..';
+import {SlideInMenu} from '..';
 
 
 // styles
@@ -20,6 +20,9 @@ const NavWrap = styled.div`
   grid-area: nav;
   opacity: 0.96;
   z-index: 99;
+  @media only screen and (max-width: 795px){
+    height: 50px;
+  }
 `;
 
 const NavList = styled.ul`
@@ -96,6 +99,7 @@ const APPLogo = styled.div`
   @media only screen and (max-width: 795px){
     margin-left: auto;
     margin-right: 10px;
+    height: 50px;
   }
 `;
 
@@ -113,10 +117,11 @@ function Nav(props) {
     ref.current.scrollIntoView({behavior: 'smooth', block:'center'})
   }
 
+  const toggleOpen = (val = null) => { val === null ? setOpen(!open) : setOpen(val)}
+
   return (
     <NavWrap>
-      <Burger open={open} setOpen={setOpen}></Burger>
-      <SlideInMenu refs={refs} open={open} setOpen={setOpen}></SlideInMenu>
+      <SlideInMenu refs={refs} open={open} toggleOpen={toggleOpen}></SlideInMenu>
       <APPLogo>
         <img src={logo} alt="A-Plus Patient" onClick={() => scrollToRef(refs.coverRef)}></img> 
       </APPLogo>

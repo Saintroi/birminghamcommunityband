@@ -11,6 +11,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Calendar from "@ericz1803/react-google-calendar";
 
+
 // styles
 
 const MainWrap = styled.div`
@@ -141,14 +142,19 @@ const Card = styled.div`
     padding: 0px;
 
     p {
-      font-size: 5vmin;
+      font-size: 4vmin !important;
       margin: 0 30px 0 30px;
     }
     h2 {
-      font-size: 6vmin;
+      font-size: 5vmin;
       width: 100%;
       margin: 5px;
     }
+    img {
+      margin-top: 10px;
+      width: 20vmin;
+      height: 20vmin;
+  }
   }
 `;
 
@@ -202,6 +208,31 @@ const StyledLink = styled.a`
 
 const PhotoWrap = styled.div`
   width: 99%;
+  @media only screen and (max-width: 795px) {
+    display: none;
+  }
+`;
+
+const CalendarWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 99%;
+  height: auto;
+  margin: 20px 0;
+
+  @media only screen and (max-width: 795px) {
+    max-height: 60vh;
+    overlflow: hidden;
+
+    .calendar-body{
+      grid-auto-rows: minmax(55px, auto);
+
+      .day{
+        padding: 7px 0;
+      }
+    }
+  }
 `;
 
 const Contact = styled.div`
@@ -212,14 +243,13 @@ const Contact = styled.div`
   color: white;
   text-align: center;
   background-color: ${(props) => props.theme.primaryColor};
-  border-radius: 20px;
   margin: 20px;
-  width: 30%;
+  width: 100%;
   flex: 2;
-  padding: 20px 20px 20px 20px;
+  padding: 10px;
 
   h1 {
-    margin: 5px;
+    margin: 8px;
   }
   hr {
     width: 100%;
@@ -228,7 +258,7 @@ const Contact = styled.div`
     margin: 0;
   }
   a {
-    color: white;
+    color: ${(props) => props.theme.altAccentColor};
     font-size: 1.5vmin;
   }
   p {
@@ -240,8 +270,11 @@ const Contact = styled.div`
     margin: 0;
     width: 80%;
     a {
-      font-size: 4vmin;
+      font-size: 3vmin;
     }
+    p {
+    font-size: 3vmin;
+  }
   }
 `;
 
@@ -264,10 +297,11 @@ function Homepage(props) {
   const coverRef = useRef(null);
   importAll(require.context("../../img/bandpics", false, /\.(png|jpe?g|svg)$/));
   const bandPictures = Object.entries(cache).map((module) => module[1].default);
-  let calStyle = {
+
+  const calStyle = {
     calendar: {
       borderWidth: "3px",
-      minWidth: "50%"
+      width: "90%",
     },
     today:{
       color: "#70ABAF",
@@ -350,8 +384,9 @@ function Homepage(props) {
       </AliceCarousel>
      </PhotoWrap>
 
-      <hr ref={scheduleRef}></hr>
-      <Calendar apiKey={config.calendar.api_key} calendars={[{calendarId: config.calendar.calendarID, color: "#FBB13C"}]} styles={calStyle} showFooter={false}/>
+      <CalendarWrap ref={scheduleRef}>
+        <Calendar apiKey={config.calendar.api_key} calendars={[{calendarId: config.calendar.calendarID, color: "#FBB13C"}]} styles={calStyle} showFooter={false}/>
+      </CalendarWrap>
       <About ref={conductorRef}>
         <h1>About the Conductors</h1>
         <p>
@@ -416,6 +451,7 @@ function Homepage(props) {
         <h1 ref={contactRef}>CONTACT US</h1>
         <hr></hr>
         <p>Like us on <a href="https://www.facebook.com/Birminghamcommunity">Facebook</a></p>
+        <hr></hr>
         <p>Send us an email: <a href="mailto:birminghamcommunityband@gmail.com">birminghamcommunityband@gmail.com</a></p>
 
       </Contact>

@@ -7,6 +7,7 @@ const Wrapper = styled.div`
     left: 99%;
     top: 10px;
 
+
     @media only screen and (max-width: 795px){
         left: 3vw;
     }
@@ -19,7 +20,7 @@ const Bar = styled.div`
 
     &.horizontal {
         width: 20px;
-        height: 3px;
+        height: 4px;
         top: 45%;
         left: 50%;
         margin-left: -10px;
@@ -28,7 +29,7 @@ const Bar = styled.div`
     }
 
     &.vertical {
-        width: 3px;
+        width: 4px;
         height: 20px;
         left: 50%;
         margin-left: -2.5px;
