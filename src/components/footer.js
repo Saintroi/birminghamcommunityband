@@ -10,7 +10,7 @@ const Wrap = styled.div`
   justify-content: center;
   align-items: flex-end;
   background-color: ${(props) => props.theme.BackgroundColor};
-  height: 100px;
+  height: 60px;
   
   @media only screen and (max-width: 795px){
     height: 30px;
