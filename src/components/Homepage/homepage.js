@@ -192,17 +192,31 @@ const Conductors = styled.div`
     }
   }
 `;
-const StyledLink = styled.a`
+const GalleryLink = styled.a`
   text-transform: uppercase;
-  font-size: 1.5vmin;
+  font-size: 6vmin;
   font-weight: bold;
   color: white;
-  text-decoration: none;
-
+  visibility: hidden;
+  width: 60%;
+  text-align: center;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: ${(props) => props.theme.primaryColor};
+  background: linear-gradient(to right,  ${(props) => props.theme.accentColor} 50%, ${(props) => props.theme.primaryColor} 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .3s ease-out;
+  margin: 15px;
 
   &:focus, &:active, &:hover{
     text-decoration: none;
-    cursor: pointer;
+    background-position: left bottom;
+
+  }
+
+  @media only screen and (max-width: 795px) {
+    visibility: visible;
   }
 `;
 
@@ -363,7 +377,7 @@ function Homepage(props) {
           groups may contact us or may visit at any rehearsal.
         </p>
       </About>
-      <PhotoWrap>      
+      <PhotoWrap>
         <AliceCarousel
         mouseTracking
         keyboardNavigation
@@ -383,7 +397,7 @@ function Homepage(props) {
         ))}
       </AliceCarousel>
      </PhotoWrap>
-
+     <GalleryLink>PHOTO GALLERY</GalleryLink>
       <CalendarWrap ref={scheduleRef}>
         <Calendar apiKey={config.calendar.api_key} calendars={[{calendarId: config.calendar.calendarID, color: "#FBB13C"}]} styles={calStyle} showFooter={false}/>
       </CalendarWrap>
