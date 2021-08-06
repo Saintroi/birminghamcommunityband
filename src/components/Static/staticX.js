@@ -3,14 +3,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     transform: rotate(45deg);
-    position: fixed;
-    left: 99%;
-    top: 10px;
+    position: relative;
 
-
-    @media only screen and (max-width: 795px){
-        left: 3vw;
-    }
 `;
 
 const Bar = styled.div`
@@ -45,7 +39,7 @@ const Bar = styled.div`
 function CloseButton(props) {
 
       return (
-        <Wrapper onClick={props.click}>
+        <Wrapper className={props.className} onClick={props.click}>
             <Bar className="horizontal"></Bar>
             <Bar className="vertical"></Bar>
         </Wrapper>

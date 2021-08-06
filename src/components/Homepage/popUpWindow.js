@@ -9,8 +9,8 @@ const OverlayWindow = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: ${(props) => props.theme.darkAccentColor};
-    opacity: 95%;
+    background-color: ${(props) => props.theme.backgroundColor};
+    opacity: 98%;
     border-color: ${(props) => props.theme.accentColor};
     border-width: 2px;
     border-style: solid;
@@ -19,9 +19,9 @@ const OverlayWindow = styled.div`
     min-width: 40%;
     max-width: 40%;
     max-height: ${props => props.showing ? '80vh' : '0'};
-    color: white;
+    color: black;
     text-align: center;
-    overflow: hidden;
+    overflow-y: auto;
     white-space: pre-wrap;
     transition: all 300ms ease;
 
@@ -86,6 +86,16 @@ h2{
 
 `;
 
+const Close = styled(CloseButton)`
+  top: 12px;
+  float: left;
+  padding-left: 20px;
+
+  @media only screen and (max-width: 795px){
+    transform: scale(0.75) rotate(45deg);
+  }
+`;
+
 
 
 function PopUp(props) {
@@ -117,7 +127,7 @@ function PopUp(props) {
     <React.Fragment>
       <StyledLink onClick={show}><h2>MORE</h2></StyledLink>
       <OverlayWindow showing={showing} ref={wrapperRef}>
-          <CloseButton click={show}></CloseButton>
+          <Close click={show}></Close>
           <p>{props.text}</p>
       </OverlayWindow>
     </React.Fragment>

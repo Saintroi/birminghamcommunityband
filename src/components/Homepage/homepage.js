@@ -83,9 +83,10 @@ const About = styled.div`
   border-radius: 20px;
   margin: 20px;
   width: 95%;
-  max-width: 1200px;
+  max-height: 40vh;
+  overflow-y: auto;
   flex: 2;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   border: 2px solid ${(props) => props.theme.altBackgroundColor};
 
   p {
@@ -95,7 +96,7 @@ const About = styled.div`
 
   @media only screen and (max-width: 795px) {
     p {
-      font-size: 3.5vmin;
+      font-size: 4vmin;
       margin: 0;
       padding: 0 15px;
     }
@@ -137,8 +138,8 @@ const Card = styled.div`
   }
 
   @media only screen and (max-width: 795px) {
-    margin: 0 5px 5px 5px;
-    width: 70%;
+    margin: 0 5px 10px 5px;
+    width: 85%;
     padding: 0px;
 
     p {
@@ -216,12 +217,13 @@ const GalleryLink = styled.a`
   }
 
   @media only screen and (max-width: 795px) {
-    visibility: visible;
+    visibility: hidden;
   }
 `;
 
 const PhotoWrap = styled.div`
   width: 99%;
+  display: none;
   @media only screen and (max-width: 795px) {
     display: none;
   }
@@ -284,12 +286,39 @@ const Contact = styled.div`
     margin: 0;
     width: 80%;
     a {
-      font-size: 3vmin;
+      font-size: 4vmin;
     }
     p {
+    font-size: 4vmin;
+  }
+  }
+`;
+
+const AlertBanner = styled.div`
+  width: 100vw;
+  background-color: ${(props) => props.theme.accentColor};
+  height: 10vh;
+  max-height: 120px;
+  text-align: center;
+  overflow-y: auto;
+
+  h1{
+    font-size: 1.5vmin;
+    margin: 5px 10px;
+  }
+  a {
+    color: ${(props) => props.theme.brightAccentColor};
+    font-size: 1.5vmin;
+  }
+
+  @media only screen and (max-width: 795px) {
+    h1 {
+      font-size: 3vmin;
+    }
+    a {
     font-size: 3vmin;
   }
-  }
+}
 `;
 
 //JSX
@@ -339,6 +368,13 @@ function Homepage(props) {
         <img className="bg" src={bg} alt=""></img>
         <h1>BIRMINGHAM COMMUNITY BANDS</h1>
       </Cover>
+      <AlertBanner>
+        <h1> ATTENTION: The Birmingham Community Concert Band will resume rehearsals on Tuesday, August 10th at 7pm</h1>
+        <h1> LOCATION: John Carroll Catholic High School</h1>
+        <h1> COVID: Please DO NOT come unless you are vaccinated</h1>
+        <h1> See our <a href="https://www.facebook.com/Birminghamcommunity">Facebook</a> for details.</h1>
+
+      </AlertBanner>
       <About ref={aboutRef}>
         <h1>About Us</h1>
         <p>

@@ -9,7 +9,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background-color: ${(props) => props.theme.BackgroundColor};
+  background-color: ${(props) => props.theme.backgroundColor};
   height: 60px;
   
   @media only screen and (max-width: 795px){

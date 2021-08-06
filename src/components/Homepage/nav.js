@@ -14,8 +14,7 @@ const NavWrap = styled.div`
   top: 0px;
   align-items: center;
   min-height: 50px;
-  max-height: 75px;
-  height: 75px;
+  max-height: 85px;
   width: 100%;
   grid-area: nav;
   opacity: 0.96;
@@ -29,9 +28,11 @@ const NavList = styled.ul`
   height: 100%;
   width: 100%;
   list-style-type: none;
-  margin-right: 40px;
+  margin: 0 40px 0 0;
   display: flex;
   justify-content: flex-end;
+  align-items: stretch;
+  align-self: center;
 
   @media only screen and (max-width: 795px){
     display: none;
@@ -47,10 +48,11 @@ const NavLink = styled.li`
   padding: 10px;
   text-align: center;
   border-style: solid;
-  max-width: 120px;
-  min-width: 80px;
-  width: 300px;
+  max-width: 250px;
+  min-width: 120px;
   border-width: 0px;
+  min-height: 50px;
+  height: 100%;
   transition: background-color 100ms, border-width 100ms;
 
 
@@ -102,6 +104,7 @@ const APPLogo = styled.div`
     height: 50px;
   }
 `;
+
 
 
 
