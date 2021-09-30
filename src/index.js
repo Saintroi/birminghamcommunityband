@@ -10,6 +10,7 @@ import './index.css';
 
 import registerServiceWorker from './serviceWorker';
 
+
 const client = new ApolloClient({
   uri: config.serverUrl + '/graphql',
   request: operation => {
