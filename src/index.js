@@ -8,7 +8,7 @@ import config from './config';
 
 import './index.css';
 
-import registerServiceWorker from './serviceWorker';
+//import registerServiceWorker from './serviceWorker';
 
 
 const client = new ApolloClient({
@@ -31,4 +31,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-registerServiceWorker();
+//registerServiceWorker();
