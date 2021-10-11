@@ -297,7 +297,6 @@ const Contact = styled.div`
 const AlertBanner = styled.div`
   width: 100vw;
   background-color: ${(props) => props.theme.accentColor};
-  height: 10vh;
   max-height: 120px;
   text-align: center;
   overflow-y: auto;
@@ -369,11 +368,9 @@ function Homepage(props) {
         <h1>BIRMINGHAM COMMUNITY BANDS</h1>
       </Cover>
       <AlertBanner>
-        <h1> ATTENTION: The Birmingham Community Concert Band will resume rehearsals on Tuesday, August 10th at 7pm</h1>
+        <h1> ATTENTION: The Birmingham Community Concert Band has resumed rehearsals on Tuesdays from 7-9PM</h1>
         <h1> LOCATION: John Carroll Catholic High School</h1>
-        <h1> COVID: Please DO NOT come unless you are vaccinated</h1>
         <h1> See our <a href="https://www.facebook.com/Birminghamcommunity">Facebook</a> for details.</h1>
-
       </AlertBanner>
       <About ref={aboutRef}>
         <h1>About Us</h1>
@@ -499,6 +496,8 @@ function Homepage(props) {
       </Conductors>
       <Contact>
         <h1 ref={contactRef}>CONTACT US</h1>
+        <hr></hr>
+        <p>Join our <a href="https://bit.ly/joinbccb">Mailing List</a></p>
         <hr></hr>
         <p>Like us on <a href="https://www.facebook.com/Birminghamcommunity">Facebook</a></p>
         <hr></hr>
