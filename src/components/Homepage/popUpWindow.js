@@ -9,7 +9,7 @@ const OverlayWindow = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.brightAccentColor};
     opacity: 98%;
     border-color: ${(props) => props.theme.accentColor};
     border-width: 2px;

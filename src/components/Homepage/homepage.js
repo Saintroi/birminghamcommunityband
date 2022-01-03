@@ -387,24 +387,17 @@ function Homepage(props) {
           ability levels. <br></br>
           <br></br>
           The Birmingham Community Concert Band meets every Tuesday evening from
-          7:00 to 9:00pm in the band room in Hulsey Hall on the Campus of the
-          University of Alabama at Birmingham. It is under the direction of
-          Harry McAfee during the Academic Year and Dr. Johnny Jacobs during the
-          summer. Alan Brooks serves as substitute when needed.<br></br>
+          7:00 to 9:00pm in the band room at John Carroll Catholic High School. 
+          <br></br>
+          It is under the direction of Harry McAfee during the Academic Year, Dr. Johnny Jacobs during the
+          summer, and Greg Gumina for our Christmas series. Alan Brooks serves as substitute when needed.<br></br>
           <br></br>
           The Birmingham Wind Ensemble meets on Wednesdays from 7:00 to 9:00pm
-          in the University of Alabama at Birmingham Band Room. This group is
-          conducted by Jack Rudisell.<br></br>
+          at Fair Haven Chapel on Montclair Rd. This group is conducted by Deanna Bell.<br></br>
           <br></br>
           The membership is completely volunteer. The BCCB Association is
           registered as a 501 C-3 not for profit organization and welcomes tax
           deductible donations.<br></br>
-          <br></br>
-          The Association expresses its deepest appreciation to the UAB band
-          director, Dr. Gene Fambrough, and the Music Department of the
-          University of Alabama at Birmingham for the generous support in
-          allowing us to use the Band Room and equipment for our rehearsals.
-          <br></br>
           <br></br>
           Individuals interested in becoming a member of one or both of these
           groups may contact us or may visit at any rehearsal.
