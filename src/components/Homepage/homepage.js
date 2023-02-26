@@ -3,7 +3,7 @@ import config from '../../config';
 import { withRouter } from "react-router-dom";
 import { PopUp } from "..";
 import styled from "styled-components";
-import bg from "../../img/bandtemp.jpg";
+import bg from "../../img/band_tville.jpg";
 import johnny from "../../img/johnnyjacobs.jpg";
 import harry from "../../img/harry.jpg";
 import deanna from "../../img/deanna.jpg";
@@ -320,6 +320,12 @@ const AlertBanner = styled.div`
 }
 `;
 
+/*      <AlertBanner>
+        <h1> ATTENTION: The Birmingham Community Concert Band has resumed rehearsals on Tuesdays from 7-9PM</h1>
+        <h1> LOCATION: John Carroll Catholic High School</h1>
+        <h1> See our <a href="https://www.facebook.com/Birminghamcommunity">Facebook</a> for details.</h1>
+      </AlertBanner> */
+
 //JSX
 const handleDragStart = (e) => e.preventDefault();
 
@@ -365,13 +371,9 @@ function Homepage(props) {
     <MainWrap>
       <Cover ref={coverRef}>
         <img className="bg" src={bg} alt=""></img>
-        <h1>BIRMINGHAM COMMUNITY BANDS</h1>
+        <h1>BIRMINGHAM COMMUNITY CONCERT BAND ASSOCIATION</h1>
       </Cover>
-      <AlertBanner>
-        <h1> ATTENTION: The Birmingham Community Concert Band has resumed rehearsals on Tuesdays from 7-9PM</h1>
-        <h1> LOCATION: John Carroll Catholic High School</h1>
-        <h1> See our <a href="https://www.facebook.com/Birminghamcommunity">Facebook</a> for details.</h1>
-      </AlertBanner>
+
       <About ref={aboutRef}>
         <h1>About Us</h1>
         <p>
@@ -393,7 +395,7 @@ function Homepage(props) {
           summer, and Greg Gumina for our Christmas series. Alan Brooks serves as substitute when needed.<br></br>
           <br></br>
           The Birmingham Wind Ensemble meets on Wednesdays from 7:00 to 9:00pm
-          at Fair Haven Chapel on Montclair Rd. This group is conducted by Deanna Bell.<br></br>
+          in the UAB Band Room within Hulsey Hall. This group is conducted by Deanna Bell.<br></br>
           <br></br>
           The membership is completely volunteer. The BCCB Association is
           registered as a 501 C-3 not for profit organization and welcomes tax

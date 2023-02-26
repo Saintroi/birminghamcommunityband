@@ -53,7 +53,7 @@ const NavLink = styled.li`
   border-width: 0px;
   min-height: 50px;
   height: 100%;
-  transition: background-color 100ms, border-width 100ms;
+  transition: border-color 100ms, border-width 100ms;
 
 
   &:hover {
