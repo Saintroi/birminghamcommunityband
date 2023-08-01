@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@emotion/react": "^11.11.1",
     "@ericz1803/react-google-calendar": "^4.3.1",
     "@paypal/react-paypal-js": "^8.1.1",
@@ -46,7 +47,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "graphql": "^16.7.1"
   }
 }
