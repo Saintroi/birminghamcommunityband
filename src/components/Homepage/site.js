@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Nav, Homepage, Footer} from '..';
+
 
 
 // styles
@@ -60,4 +60,4 @@ function Site(props) {
     );
   }
 
-export default withRouter(Site);
+export default Site;

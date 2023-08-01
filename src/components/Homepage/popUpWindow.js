@@ -9,17 +9,17 @@ const OverlayWindow = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: ${(props) => props.theme.brightAccentColor};
+    background-color: ${(props) => props.theme.vignetteColor};
     opacity: 98%;
     border-color: ${(props) => props.theme.accentColor};
     border-width: 2px;
     border-style: solid;
-    visibility: ${props => props.showing ? 'visible' : 'hidden'};
+    visibility: ${props => props.$showing ? 'visible' : 'hidden'};
     z-index: 100;
     min-width: 40%;
     max-width: 40%;
-    max-height: ${props => props.showing ? '80vh' : '0'};
-    color: black;
+    max-height: ${props => props.$showing ? '80vh' : '0'};
+    color: white;
     text-align: center;
     overflow-y: auto;
     white-space: pre-wrap;
@@ -35,7 +35,7 @@ const OverlayWindow = styled.div`
 
     @media only screen and (max-width: 795px){
       min-width: 80%;
-      max-height: ${props => props.showing ? '60vh' : '0'};
+      max-height: ${props => props.$showing ? '60vh' : '0'};
       p{
           font-size: 4vmin;
           margin: 2%;
@@ -126,7 +126,7 @@ function PopUp(props) {
   return(
     <React.Fragment>
       <StyledLink onClick={show}><h2>MORE</h2></StyledLink>
-      <OverlayWindow showing={showing} ref={wrapperRef}>
+      <OverlayWindow $showing={showing} ref={wrapperRef}>
           <Close click={show}></Close>
           <p>{props.text}</p>
       </OverlayWindow>

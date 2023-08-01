@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import config from '../../config';
-import { withRouter } from "react-router-dom";
-import { PopUp } from "..";
+import { PopUp, DonateButton} from "..";
 import styled from "styled-components";
 import bg from "../../img/band_tville.jpg";
 import johnny from "../../img/johnnyjacobs.jpg";
@@ -50,7 +49,8 @@ const Cover = styled.div`
     top: 20vh;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 4vmin;
+    font-size: 5vmin;
+    margin: 0;
   }
 
   .bg {
@@ -58,7 +58,8 @@ const Cover = styled.div`
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
-    filter: blur(3px) brightness(60%);
+    object-position: center bottom;
+    filter: blur(5px) brightness(45%);
     transform: scale(1.01);
     z-index: 95;
   }
@@ -82,8 +83,9 @@ const About = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
   border-radius: 20px;
   margin: 20px;
-  width: 95%;
+  width: 85%;
   max-height: 40vh;
+  max-width: 1500px;
   overflow-y: auto;
   flex: 2;
   padding: 0 10px 10px 10px;
@@ -105,7 +107,7 @@ const About = styled.div`
       width: 100%;
       margin: 5px 0;
     }
-    margin: 5px 0;
+    margin: 10px 0;
     width: 90%
   }
 `;
@@ -167,6 +169,7 @@ const Conductors = styled.div`
   color: white;
   text-align: center;
   border-radius: 20px;
+  max-width: 1500px;
   margin: 20px;
   width: 80%;
   flex: 2;
@@ -233,36 +236,37 @@ const CalendarWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 99%;
+  width: 95%;
   height: auto;
   margin: 20px 0;
+  max-width: 1700px;
 
   @media only screen and (max-width: 795px) {
     max-height: 60vh;
     overlflow: hidden;
 
     .calendar-body{
-      grid-auto-rows: minmax(55px, auto);
+      grid-auto-rows: minmax(40px, auto);
 
       .day{
-        padding: 7px 0;
+        padding: 5px 0;
       }
     }
   }
 `;
 
-const Contact = styled.div`
+const HorizontalBanner = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
   color: white;
   text-align: center;
+  flex-direction: row;
   background-color: ${(props) => props.theme.primaryColor};
-  margin: 20px;
   width: 100%;
-  flex: 2;
+  margin: 20px;
   padding: 10px;
+  max-height: 300px;
 
   h1 {
     margin: 8px;
@@ -282,7 +286,13 @@ const Contact = styled.div`
     margin: 5px;
   }
 
+  img{
+    height: 70%;
+    width: 70%;
+  }
+
   @media only screen and (max-width: 795px) {
+    flex-direction: column;
     margin: 0;
     width: 80%;
     a {
@@ -291,7 +301,33 @@ const Contact = styled.div`
     p {
     font-size: 4vmin;
   }
+  img{
+    height: 80%;
+    width: 80%;
   }
+  }
+`;
+
+const Contact = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  flex: 2;
+  padding: 10px;
+
+`;
+const Donate = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 2;
+  padding: 10px;
+
 `;
 
 const AlertBanner = styled.div`
@@ -350,6 +386,7 @@ function Homepage(props) {
     calendar: {
       borderWidth: "3px",
       width: "90%",
+      borderColor: "#70ABAF"
     },
     today:{
       color: "#70ABAF",
@@ -405,27 +442,6 @@ function Homepage(props) {
           groups may contact us or may visit at any rehearsal.
         </p>
       </About>
-      <PhotoWrap>
-        <AliceCarousel
-        mouseTracking
-        keyboardNavigation
-        infinite
-        autoPlay
-        
-        autoPlayInterval="5000"
-      >
-        {bandPictures.map((image, index) => (
-          <img
-            src={image}
-            key={index}
-            alt="error"
-            onDragStart={handleDragStart}
-            className="sliderimg"
-          />
-        ))}
-      </AliceCarousel>
-     </PhotoWrap>
-     <GalleryLink>PHOTO GALLERY</GalleryLink>
       <CalendarWrap ref={scheduleRef}>
         <Calendar apiKey={config.calendar.api_key} calendars={[{calendarId: config.calendar.calendarID, color: "#FBB13C"}]} styles={calStyle} showFooter={false}/>
       </CalendarWrap>
@@ -489,18 +505,47 @@ function Homepage(props) {
           ></PopUp>
         </Card>
       </Conductors>
-      <Contact>
-        <h1 ref={contactRef}>CONTACT US</h1>
-        <hr></hr>
-        <p>Join our <a href="https://bit.ly/joinbccb">Mailing List</a></p>
-        <hr></hr>
-        <p>Like us on <a href="https://www.facebook.com/Birminghamcommunity">Facebook</a></p>
-        <hr></hr>
-        <p>Send us an email: <a href="mailto:birminghamcommunityband@gmail.com">birminghamcommunityband@gmail.com</a></p>
-
-      </Contact>
+      <HorizontalBanner>
+        <Contact>
+          <h1 ref={contactRef}>CONTACT US</h1>
+          <hr></hr>
+          <p>Join our <a href="https://bit.ly/joinbccb">Mailing List</a></p>
+          <hr></hr>
+          <p>Like us on <a href="https://www.facebook.com/Birminghamcommunity">Facebook</a></p>
+          <hr></hr>
+          <p>Send us an email: <a href="mailto:birminghamcommunityband@gmail.com">birminghamcommunityband@gmail.com</a></p>
+        </Contact>
+        <Donate>
+        <h1>DONATE TO US</h1>
+          <DonateButton></DonateButton>
+        </Donate>
+      </HorizontalBanner>
     </MainWrap>
   );
 }
 
-export default withRouter(Homepage);
+export default Homepage;
+
+/*
+      <PhotoWrap>
+        <AliceCarousel
+        mouseTracking
+        keyboardNavigation
+        infinite
+        autoPlay
+        
+        autoPlayInterval="5000"
+      >
+        {bandPictures.map((image, index) => (
+          <img
+            src={image}
+            key={index}
+            alt="error"
+            onDragStart={handleDragStart}
+            className="sliderimg"
+          />
+        ))}
+      </AliceCarousel>
+     </PhotoWrap>
+     <GalleryLink>PHOTO GALLERY</GalleryLink>
+*/

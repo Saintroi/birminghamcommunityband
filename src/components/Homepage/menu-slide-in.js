@@ -1,6 +1,7 @@
 import React, {useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import {Burger} from '..';
+import { navigate } from "raviger";
 
 
 // styles
@@ -80,6 +81,7 @@ function SlideInMenu(props) {
               <StyledLink onClick={() => scrollToRef(props.refs.aboutRef)}>About Us</StyledLink>
               <StyledLink onClick={() => scrollToRef(props.refs.scheduleRef)} >Concert Schedule</StyledLink>
               <StyledLink onClick={() => scrollToRef(props.refs.conductorRef)}>Conductors</StyledLink>
+              <StyledLink onClick={() => navigate('/donate')}>Donate</StyledLink>
               <StyledLink onClick={() => scrollToRef(props.refs.contactRef)}>Contact</StyledLink>
         </StyledMenu>
       </Wrap>

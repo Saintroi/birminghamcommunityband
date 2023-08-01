@@ -1,14 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import config from './config';
 
 import './index.css';
 
-//import registerServiceWorker from './serviceWorker';
+import registerServiceWorker from './serviceWorker';
 
 
 const client = new ApolloClient({
@@ -22,13 +21,15 @@ const client = new ApolloClient({
   }
 });
 
-ReactDOM.render(
-  <BrowserRouter>
+const container = document.getElementById('root');
+
+const root = createRoot(container);
+
+
+root.render(
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
 );
 
-//registerServiceWorker();
+registerServiceWorker();

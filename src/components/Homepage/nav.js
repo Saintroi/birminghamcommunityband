@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/BCCB-Logo.png';
 import {SlideInMenu} from '..';
+import { navigate } from "raviger";
 
 
 // styles
@@ -138,6 +138,9 @@ function Nav(props) {
           <NavLink onClick={() => scrollToRef(refs.conductorRef)}>
             <StyledLink>Conductors</StyledLink>
           </NavLink>
+          <NavLink onClick={() => navigate('/donate')}>  
+            <StyledLink>Donate</StyledLink>
+          </NavLink>
           <NavLink onClick={() => scrollToRef(refs.contactRef)}>  
             <StyledLink>Contact</StyledLink>
           </NavLink>
@@ -147,4 +150,4 @@ function Nav(props) {
     );
   }
 
-export default withRouter(Nav);
+export default Nav;

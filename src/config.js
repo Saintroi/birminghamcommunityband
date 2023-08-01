@@ -1,5 +1,5 @@
 const config = {
-  appUrl: 'http://localhost:3000',
+  appUrl: 'http://bhmbands.com',
   authToken: 'bearer ',
   calendar: {
     calendarID: "birminghamcommunityband@gmail.com",
@@ -11,7 +11,7 @@ const config = {
     token_uri: "https://oauth2.googleapis.com/token",
     auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
     client_secret: process.env.REACT_APP_BCCB_CLIENT_SECRET,
-    javascript_origins: ["https://birminghamcommunityband.org"]
+    javascript_origins: ["https://bhmbands.com"]
   }
 };
 
